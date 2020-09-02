@@ -1,0 +1,21 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+    {% comment %} <div class="content-section mt-5"> {% endcomment %}
+        <table class="table table-striped table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td><a href="{% url 'manufacturer-detail' object.id %}" >{{ object.id }}</a></td>
+                        <td>{{ object.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% comment %} </div> {% endcomment %}
+{% endblock content %}
