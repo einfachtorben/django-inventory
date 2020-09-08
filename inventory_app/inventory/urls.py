@@ -17,7 +17,6 @@ from inventory.views import (
     ItemDetailView,
     ItemListView,
 )
-from iommi import Table
 from inventory.models import Item_info
 
 
@@ -45,5 +44,5 @@ urlpatterns = [
     path('create/item/', ItemCreateView.as_view(), name='item-create'),
     path('list/item/', ItemListView.as_view(), name='item-list'),
     path('list/item/<int:pk>/', ItemDetailView.as_view(), name='item-detail'),
-    path('list/info/', Table(auto__model=Item_info).as_view(), name='item-list' ),
+    path('create/', views.create, name='list-create'),
 ]

@@ -15,8 +15,8 @@ services:
       POSTGRES_USER: django
       POSTGRES_PASSWORD: admin
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8080:8080

@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from inventory.iommi import Table
 from inventory.models import (
     Elimination,
     PME,
@@ -118,3 +117,7 @@ class ItemListView(ListView):
 class ItemDetailView(DetailView):
     model = Item
     template_name = "inventory/item-detail.html"
+
+def create(request):
+    create_views = ['pme-create', 'manufacturer-create', 'elimination-create', 'location-create', 'item-create' ]
+    return render(request, 'inventory/create.html', context={'title': 'Create', 'create_views' : create_views})

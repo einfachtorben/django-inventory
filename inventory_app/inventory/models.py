@@ -73,10 +73,10 @@ class Inventory_location(models.Model):
 class Item_info(models.Model):
     description = models.TextField(null=True)
     deleted_at = models.DateTimeField(null=True)
-    inventory_location = models.ForeignKey(
-        Inventory_location, on_delete=models.CASCADE)
+    inventory_location = models.ForeignKey(Inventory_location, on_delete=models.CASCADE)
     elimination = models.ForeignKey(Elimination, on_delete=models.CASCADE)
     serialnumber = models.CharField(max_length=50)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, default=2)
 
     def get_absolute_url(self):
         return reverse("info-detail", kwargs={"pk": self.pk})
