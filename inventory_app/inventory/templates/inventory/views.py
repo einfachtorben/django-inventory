@@ -28,7 +28,7 @@ class PMECreateView(LoginRequiredMixin, CreateView):
     model = PME
     template_name = "inventory/generic-form.html"
 
-    fields = ['name', 'items', 'description']
+    fields = ['name', 'description']
 
 
 class PMEListView(ListView):
@@ -128,6 +128,7 @@ class ItemInfoCreateView(LoginRequiredMixin, CreateView):
 
     fields = ['item', 'description', 'inventory_location',
               'elimination', 'serialnumber']
+
 
 
 class ItemInfoListView(ListView):

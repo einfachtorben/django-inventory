@@ -16,6 +16,9 @@ from inventory.views import (
     ItemCreateView,
     ItemDetailView,
     ItemListView,
+    ItemInfoCreateView,
+    ItemInfoDetailView,
+    ItemInfoListView,
 )
 from inventory.models import Item_info
 
@@ -45,4 +48,7 @@ urlpatterns = [
     path('list/item/', ItemListView.as_view(), name='item-list'),
     path('list/item/<int:pk>/', ItemDetailView.as_view(), name='item-detail'),
     path('create/', views.create, name='list-create'),
+    path("create/item-info/", ItemInfoCreateView.as_view(), name="info-create"),
+    path("list/item-info/", ItemInfoListView.as_view(), name="info-list"),
+    path("list/item-info/<int:pk>", ItemInfoDetailView.as_view(), name="info-detail"),
 ]
