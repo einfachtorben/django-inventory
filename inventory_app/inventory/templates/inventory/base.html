@@ -12,12 +12,52 @@
   </head>
   <body>
 
-{% block nav %}{% endblock nav %}
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#">Inventory System</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		  <li class="nav-item active">
+			<a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Pages
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="#">Action</a>
+				<a class="dropdown-item" href="#">Another action</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#">Something else here</a>
+			</div>
+		  </li>
+		</ul>
+		<span class="navbar-text">
+			<ul class="navbar-nav mr-auto">
+				{% if user.is_authenticated %}
+				<span class="navbar-text">
+				{{ user.username }}
+				</span>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">Login</a>
+				</li>
+				{% endif %}
+			</ul>
+		</span>
+	  </div>
+	</nav>
 
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8">
-      {% block content %}{% endblock content %}
+      {% block content %}
+      {% endblock content %}
 
     </div>
   </div>
