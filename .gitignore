@@ -109,6 +109,9 @@ media/
 
 # Ignore Django Migrations in Development if you are working on team
 
+#ignore env file
+*.env
+
 # Only for Development only
  **/migrations/**
  !**/migrations

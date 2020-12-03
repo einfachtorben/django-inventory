@@ -39,7 +39,6 @@ class PME(SoftDeleteObject,models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(null=True)
     items = models.ManyToManyField(Item)
-    #system = models.ManyToManyField(System, default = 1)
     def get_absolute_url(self):
         return reverse("pme-detail", kwargs={"pk": self.pk})
 
